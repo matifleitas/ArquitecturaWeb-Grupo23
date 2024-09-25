@@ -1,5 +1,6 @@
 package JDBCBasic.DTO;
 
+/*Creo que esta clase esta de mas pq repite el reporte*/
 public class CarreraDTO {
     private int id;
     private String nombreCarrera;
