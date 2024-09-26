@@ -1,10 +1,9 @@
 package JDBCBasic.Entities;
 
-import javax.persistence.*;
-
+import jakarta.persistence.*;
 import java.sql.Timestamp;
+import static jakarta.persistence.GenerationType.AUTO;
 
-import static javax.persistence.GenerationType.AUTO;
 @Entity
 public class EstudianteCarrera {
     @Id @GeneratedValue(strategy = AUTO)
@@ -12,12 +11,12 @@ public class EstudianteCarrera {
 
     /*CarreraId*/
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "carreara", referencedColumnName = "idCarrera")
+    @JoinColumn(name = "carrera_id", referencedColumnName = "idCarrera")
     private Carrera carrera;//Relacion a carrera
 
     /*EstudianteId*/
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "estudiante", referencedColumnName = "idEstudiante")
+    @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
     private Estudiante estudiante; //Relacion a estudiante
 
     @Column(nullable = false)

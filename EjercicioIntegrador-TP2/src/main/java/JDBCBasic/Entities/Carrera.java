@@ -1,6 +1,7 @@
 package JDBCBasic.Entities;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Carrera {
     @Column(nullable = false)
     private String nombre;
 
-    @OneToMany(mappedBy = "estudiante")
+    @OneToMany(mappedBy = "carrera")
     private List<EstudianteCarrera> estudiantes;
 
     public Carrera(){}

@@ -2,16 +2,25 @@ package JDBCBasic.RepositoryImplement;
 
 import JDBCBasic.Entities.Estudiante;
 import JDBCBasic.Repository.EstudianteRepository;
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
 public class EstudianteRepositoryImplement implements EstudianteRepository {
     /*entityManager para la conexion*/
+    private EntityManager em;
+    public EstudianteRepositoryImplement(EntityManager em) {
+        super();
+        this.em = em;
+    }
 
     @Override
-    public void insertarEstudiante(Estudiante e) {
-
+    public void insertarEstudiante(Estudiante estudiante) {
+            this.em.getTransaction().begin();
+            this.em.persist(estudiante);
+            this.em.getTransaction().commit();
     }
+
 
     @Override
     public void eliminarEstudiante(int idEstudiante) {

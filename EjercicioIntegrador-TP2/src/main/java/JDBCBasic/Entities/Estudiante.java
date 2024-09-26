@@ -1,6 +1,7 @@
 package JDBCBasic.Entities;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
@@ -35,7 +36,7 @@ public class Estudiante {
 
     @Column (nullable = false)
 
-    @OneToMany(mappedBy = "carrera")
+    @OneToMany(mappedBy = "estudiante")
     private List<EstudianteCarrera> carreras;/*Un estudiante tiene 1 o + carreras cursadas*/
                 /*Tipo EstudianteCarrera, ya que es la tabla realacion*/
     public Estudiante(String nombre, String apellido, int edad, String genero, int DNI, Long numLegajo, String ciudad, int antiguedadEnCarrera) {
