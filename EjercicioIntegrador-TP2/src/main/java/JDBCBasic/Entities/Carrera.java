@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Carrera {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idCarrera;
+    private Integer idCarrera;
 
     @Column(nullable = false)
     private String nombre;
@@ -22,6 +22,9 @@ public class Carrera {
         this.nombre = nombre;
         this.estudiantes = new ArrayList<>();
     }
+    public Integer getIdCarrera() {
+        return idCarrera;
+    }
 
     public String getNombre() {
         return nombre;
@@ -29,10 +32,6 @@ public class Carrera {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public int getIdCarrera() {
-        return idCarrera;
     }
 
     public List<EstudianteCarrera> getEstudiantes() {

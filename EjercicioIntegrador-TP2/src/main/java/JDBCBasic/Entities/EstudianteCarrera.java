@@ -2,12 +2,14 @@ package JDBCBasic.Entities;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+
 import static jakarta.persistence.GenerationType.AUTO;
 
 @Entity
 public class EstudianteCarrera {
     @Id @GeneratedValue(strategy = AUTO)
-    private int id;
+    private Integer idEstudianteCarrera;
 
     /*CarreraId*/
     @ManyToOne(cascade = CascadeType.MERGE)
@@ -20,17 +22,19 @@ public class EstudianteCarrera {
     private Estudiante estudiante; //Relacion a estudiante
 
     @Column(nullable = false)
-    private Timestamp fechaComienzo;
+    private LocalDate fechaComienzo;
 
     @Column(nullable = false)
     private boolean estaGraduado;
 
     @Column(nullable = true)
-    private Timestamp fechaGraduacion;
+    private LocalDate fechaGraduacion;
 
-    public EstudianteCarrera(){}
+    public EstudianteCarrera(){
+        super();
+    }
 
-    public EstudianteCarrera(Carrera carrera, Estudiante estudiante, Timestamp fechaComienzo, boolean estaGraduado, Timestamp fechaGraduacion) {
+    public EstudianteCarrera(Carrera carrera, Estudiante estudiante, LocalDate fechaComienzo, boolean estaGraduado, LocalDate fechaGraduacion) {
         this.carrera = carrera;
         this.estudiante = estudiante;
         this.fechaComienzo = fechaComienzo;
@@ -38,8 +42,8 @@ public class EstudianteCarrera {
         this.fechaGraduacion = fechaGraduacion;
     }
 
-    public int getId(){
-        return this.id;
+    public Integer getIdEstudianteCarrera(){
+        return this.idEstudianteCarrera;
     }
 
     public Carrera getCarrera() {
@@ -50,7 +54,7 @@ public class EstudianteCarrera {
         return estudiante;
     }
 
-    public Timestamp getFechaComienzo() {
+    public LocalDate getFechaComienzo() {
         return fechaComienzo;
     }
 
@@ -58,7 +62,7 @@ public class EstudianteCarrera {
         return estaGraduado;
     }
 
-    public Timestamp getFechaGraduacion() {
+    public LocalDate getFechaGraduacion() {
         return fechaGraduacion;
     }
 }

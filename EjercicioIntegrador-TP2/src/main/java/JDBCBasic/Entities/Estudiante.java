@@ -8,7 +8,7 @@ import java.util.List;
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idEstudiante;
+    private Integer idEstudiante;
 
     @Column (nullable = false)
     private String nombre;
@@ -109,7 +109,7 @@ public class Estudiante {
         return numLegajo;
     }
 
-    public int getIdEstudiante() {
+    public Integer getIdEstudiante() {
         return idEstudiante;
     }
 

@@ -7,6 +7,7 @@ import JDBCBasic.Entities.Estudiante;
 import JDBCBasic.Repository.CarreraRepository;
 import jakarta.persistence.EntityManager;
 
+import java.time.Instant;
 import java.util.List;
 
 public class CarreraRepositoryImpl implements CarreraRepository {
@@ -27,11 +28,23 @@ public class CarreraRepositoryImpl implements CarreraRepository {
 
     @Override
     public void matricularEstudiante(Estudiante est) {
+        this.em.getTransaction().begin();
+        this.em.persist(est);
+        this.em.getTransaction().commit();
 
     }
 
     @Override
     public List<MatriculacionDTO> getEstudiantesPorCiudad(String ciudad, String nombreCarrera) {
         return List.of();
+    }
+
+    public Carrera guardarCarrera(Carrera c) {
+        if (c.getIdCarrera() == null) {
+            em.persist(c);
+        } else {
+            c = em.merge(c);
+        }
+        return c;
     }
 }

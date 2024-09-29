@@ -1,6 +1,7 @@
 package JDBCBasic.Factory;
 
 import JDBCBasic.RepositoryImplement.CarreraRepositoryImpl;
+import JDBCBasic.RepositoryImplement.EstudianteCarreraRepositoryImpl;
 import JDBCBasic.RepositoryImplement.EstudianteRepositoryImplement;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -26,4 +27,5 @@ import jakarta.persistence.Persistence;
 
         public abstract EstudianteRepositoryImplement getEstudianteRepositoryImplement();
         public abstract CarreraRepositoryImpl getCarreraRepositoryImplement();
+        public abstract EstudianteCarreraRepositoryImpl getEstudianteCarreraRepositoryImplement();
     }

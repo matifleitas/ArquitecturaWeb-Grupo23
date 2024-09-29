@@ -41,4 +41,14 @@ public class EstudianteRepositoryImplement implements EstudianteRepository {
     public List<Estudiante> getAllEstudiantesPorGenero(String genero) {
         return List.of();
     }
+
+    public Estudiante guardarEstudiante(Estudiante estudiante) {
+        if (estudiante.getIdEstudiante() == null) {
+            em.persist(estudiante);
+        } else {
+            estudiante = em.merge(estudiante);
+        }
+        return estudiante;
+
+}
 }
