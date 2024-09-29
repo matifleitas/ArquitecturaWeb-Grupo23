@@ -1,5 +1,6 @@
 package JDBCBasic.Factory;
 
+import JDBCBasic.RepositoryImplement.CarreraRepositoryImpl;
 import JDBCBasic.RepositoryImplement.EstudianteRepositoryImplement;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -22,5 +23,10 @@ public class MySQLEntityManagerFactory extends FactoryEntityManager {
     @Override
     public EstudianteRepositoryImplement getEstudianteRepositoryImplement() {
         return new EstudianteRepositoryImplement(this.em);
+    }
+
+    @Override
+    public CarreraRepositoryImpl getCarreraRepositoryImplement() {
+        return new CarreraRepositoryImpl(this.em);
     }
 }

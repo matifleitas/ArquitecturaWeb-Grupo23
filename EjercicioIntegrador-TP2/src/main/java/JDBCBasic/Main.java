@@ -12,6 +12,7 @@ public class Main {
         FactoryEntityManager mysqlFactory = FactoryEntityManager.getInstance("MYSQL");
 
         EstudianteRepositoryImplement EstudianteRepositoryImplement = mysqlFactory.getEstudianteRepositoryImplement();
+        CarreraRepositoryImpl carreraRepositoryImplement = mysqlFactory.getCarreraRepositoryImplement();
 
         Carrera c1 = new Carrera("TUDAI");
 
@@ -21,7 +22,7 @@ public class Main {
         Estudiante s4 = new Estudiante("Santiago", "Cusato", 28, "Masculino", 45678901, 10003L, "Córdoba", 4);
         Estudiante s5 = new Estudiante("Carola", "Pérez", 27, "Femenino", 56789012, 10004L, "Mendoza", 2);
 
-//        CarreraRepositoryImpl.insertarCarrera(c1); A CHEQUEAR
+        carreraRepositoryImplement.insertarCarrera(c1);
         EstudianteRepositoryImplement.insertarEstudiante(s1);
         EstudianteRepositoryImplement.insertarEstudiante(s2);
         EstudianteRepositoryImplement.insertarEstudiante(s3);
