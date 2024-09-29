@@ -1,5 +1,6 @@
 package JDBCBasic.Repository;
 
+import JDBCBasic.DTO.EstudianteDTO;
 import JDBCBasic.Entities.Estudiante;
 
 import java.util.List;
@@ -7,8 +8,7 @@ import java.util.List;
 public interface EstudianteRepository {
     /*a), c), d), e)*/
     void insertarEstudiante(Estudiante e);
-    void eliminarEstudiante(int idEstudiante);//no es necesario
-    List<Estudiante> getAllEstudiantesPorEdad(int edad);
-    Estudiante getEstudiantesPorLegajo(Long numLegajo);
-    List<Estudiante> getAllEstudiantesPorGenero(String genero);
+    List<EstudianteDTO> getAllEstudiantesPorCiudad(String ciudad);
+    EstudianteDTO getEstudiantePorLegajo(Long numLegajo);
+    List<EstudianteDTO> getAllEstudiantesPorGenero(String genero);
 }

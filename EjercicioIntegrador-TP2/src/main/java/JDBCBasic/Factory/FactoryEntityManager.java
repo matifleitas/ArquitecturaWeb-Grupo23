@@ -12,7 +12,7 @@ import jakarta.persistence.Persistence;
         private EntityManagerFactory emf;
 
         public FactoryEntityManager(){
-            this.emf = Persistence.createEntityManagerFactory("MYSQL");
+            this.emf = Persistence.createEntityManagerFactory("mysql2");
             this.em = emf.createEntityManager();
         }
 

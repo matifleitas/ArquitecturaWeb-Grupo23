@@ -5,7 +5,7 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-    <persistence-unit name="MYSQL">
+    <persistence-unit name="mysql2">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>JDBCBasic.Entities.Carrera</class>
@@ -15,12 +15,12 @@
         <properties>
             <!-- Propiedades de configuración del JDBC para MySQL -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/EI-2" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mysql2" />
             <property name="jakarta.persistence.jdbc.user" value="root" />
-            <property name="jakarta.persistence.jdbc.password" value="123" />
+            <property name="jakarta.persistence.jdbc.password" value="root" />
 
             <!-- Propiedades para la generación automática del esquema de base de datos -->
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="show_sql" value="true" />
         </properties>

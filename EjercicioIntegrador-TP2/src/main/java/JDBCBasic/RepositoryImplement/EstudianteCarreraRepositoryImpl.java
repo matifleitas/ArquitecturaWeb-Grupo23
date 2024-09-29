@@ -1,10 +1,12 @@
 package JDBCBasic.RepositoryImplement;
 
 import JDBCBasic.DTO.CarreraReporteDTO;
+import JDBCBasic.DTO.EstudianteCarreraDTO;
 import JDBCBasic.DTO.MatriculacionDTO;
 import JDBCBasic.Entities.EstudianteCarrera;
 import JDBCBasic.Repository.EstudianteCarreraReporistory;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 
 import java.util.List;
 
@@ -23,8 +25,12 @@ public class EstudianteCarreraRepositoryImpl implements EstudianteCarreraReporis
         this.em.persist(estudianteCarrera);
         this.em.getTransaction().commit();
     }
-
-    @Override
+    public List<EstudianteCarreraDTO>GetCarrerasCantInscriptos(EstudianteCarrera e){
+        String jpql= "SELECT new DTO.EstudianteCarreraDTO (e.carreraNombre) FROM EstudianteCarrera e JOIN Carrera c  WHERE e.Estudiantes IS NOT NULL ORDER BY e.Estudiantes";
+        Query query=this.em.createQuery(jpql);
+        List<EstudianteCarreraDTO> resultado= query.getResultList();
+        return resultado;
+    }
     public List<CarreraReporteDTO> getReportes() {
         return List.of();
     }

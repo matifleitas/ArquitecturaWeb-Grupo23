@@ -6,6 +6,7 @@ import JDBCBasic.Entities.Carrera;
 import JDBCBasic.Entities.Estudiante;
 import JDBCBasic.Repository.CarreraRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 import java.time.Instant;
 import java.util.List;
@@ -36,7 +37,14 @@ public class CarreraRepositoryImpl implements CarreraRepository {
 
     @Override
     public List<MatriculacionDTO> getEstudiantesPorCiudad(String ciudad, String nombreCarrera) {
-        return List.of();
+        TypedQuery<MatriculacionDTO> estudiantesPorCiudad = (TypedQuery<MatriculacionDTO>) em.createQuery("SELECT new DTO.MatriculacionDTO(int idCarrera, String nombreCarrera, String nombreEstudiante, String ciudad) FROM Estudiante e JOIN EstudianteCarrera ec ON e.idEstudiante = ec.estudiante JOIN Carrera c ON ec.carrera = c.idCarrera WHERE c.nombre = :nombreCarrera AND e.ciudad = :ciudad");
+        estudiantesPorCiudad.setParameter("nombreCarrera", nombreCarrera);
+        estudiantesPorCiudad.setParameter("ciudad", ciudad);
+        List<MatriculacionDTO> resultado = estudiantesPorCiudad.getResultList();
+
+        resultado.forEach(e->System.out.println(e));
+
+        return resultado;
     }
 
     public Carrera guardarCarrera(Carrera c) {

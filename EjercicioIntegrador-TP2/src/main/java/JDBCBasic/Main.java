@@ -1,10 +1,12 @@
 package JDBCBasic;
 
 
+import JDBCBasic.DTO.EstudianteDTO;
 import JDBCBasic.Entities.*;
 import JDBCBasic.Factory.FactoryEntityManager;
 import JDBCBasic.RepositoryImplement.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 public class Main {
@@ -36,6 +38,8 @@ public class Main {
             EstudianteCarrera estudianteCarrera = new EstudianteCarrera(c1, estudiante, fechaComienzo, false, null);
 
             estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(estudianteCarrera);
+
         }
+        carreraRepositoryImplement.getEstudiantesPorCiudad("Cordoba", "TUDAI");
     }
 }
