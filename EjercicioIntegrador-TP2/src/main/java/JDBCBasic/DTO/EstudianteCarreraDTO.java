@@ -9,20 +9,26 @@ import java.util.List;
 
 public class EstudianteCarreraDTO {
     private String carreraNombre;
-    private List<EstudianteCarrera> Estudiantes ;
+    private Long cantEstudiantes;
 
-    public EstudianteCarreraDTO(String carreraNombre) {
+    public EstudianteCarreraDTO(String carreraNombre, Long cant) {
         this.carreraNombre = carreraNombre;
-        Estudiantes= new ArrayList<>();
+        this.cantEstudiantes = cant;
+    }
+
+    public Long getCantEstudiantes() {
+        return cantEstudiantes;
     }
 
     public String getCarreraNombre() {
         return carreraNombre;
     }
 
-
-
-    public List<EstudianteCarrera> getEstudiantes() {
-        return Estudiantes;
+    @Override
+    public String toString() {
+        return "EstudianteCarreraDTO{" +
+                "carreraNombre='" + carreraNombre + '\'' +
+                ", cantEstudiantes=" + cantEstudiantes +
+                '}';
     }
 }

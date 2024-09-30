@@ -30,32 +30,48 @@ public class EstudianteRepositoryImplement implements EstudianteRepository {
 
     @Override
     public List<EstudianteDTO> getAllEstudiantesPorCiudad(String ciudad) {
-        String jpql = "SELECT new DTO.EstudianteDTO(e.dni, e.nombre, e.apellido, e.genero, e.edad, e.numLegajo, e.ciudad) FROM Estudiante e WHERE e.ciudad = :ciudad";
+        String jpql = "SELECT new JDBCBasic.DTO.EstudianteDTO(e.DNI, e.nombre, e.apellido, e.genero, e.edad, e.numLegajo, e.ciudad) FROM Estudiante e WHERE e.ciudad = :ciudad";
         Query query = this.em.createQuery(jpql);
         query.setParameter("ciudad", ciudad);
-        List<EstudianteDTO> results = query.getResultList();
 
-        return results;
+        List<EstudianteDTO> resultado = query.getResultList();
+
+        resultado.forEach(e->System.out.println(e));
+
+
+        return resultado;
     }
 
     @Override
     public EstudianteDTO getEstudiantePorLegajo(Long numLegajo) {
-        String jpql = "SELECT new DTO.EstudianteDTO(e.dni, e.nombre, e.apellido, e.genero, e.edad, e.numLegajo, e.ciudad) FROM Estudiante e WHERE e.numLegajo= : numLegajo";
+        String jpql = "SELECT new JDBCBasic.DTO.EstudianteDTO(e.DNI, e.nombre, e.apellido, e.genero, e.edad, e.numLegajo, e.ciudad) FROM Estudiante e WHERE e.numLegajo= : numLegajo";
         Query query = this.em.createQuery(jpql);
         query.setParameter("numLegajo", numLegajo);
         EstudianteDTO resultado = (EstudianteDTO) query.getSingleResult();
+        System.out.println(resultado);
         return resultado;
 
     }
 
     @Override
     public List<EstudianteDTO> getAllEstudiantesPorGenero(String genero) {
-        String jpql = "SELECT new DTO.EstudianteDTO(e.dni, e.nombre, e.apellido, e.genero, e.edad, e.numLegajo, e.ciudad) FROM Estudiante e WHERE e.genero = :genero";
+        String jpql = "SELECT new JDBCBasic.DTO.EstudianteDTO(e.DNI, e.nombre, e.apellido, e.genero, e.edad, e.numLegajo, e.ciudad) FROM Estudiante e WHERE e.genero = :genero";
         Query query = this.em.createQuery(jpql);
         query.setParameter("genero", genero);
-        List<EstudianteDTO> results = query.getResultList();
+        List<EstudianteDTO> resultado = query.getResultList();
 
-        return results;
+        System.out.println(resultado);
+
+        return resultado;
+    }
+
+    @Override
+    public List<EstudianteDTO> getAllEstudiantesOrdenadoPorEdad() {
+        TypedQuery<EstudianteDTO> estudiantes = this.em.createQuery("SELECT new JDBCBasic.DTO.EstudianteDTO(e.nombre, e.apellido, e.edad) FROM Estudiante e ORDER BY e.edad DESC", EstudianteDTO.class);
+        List<EstudianteDTO> resultado = estudiantes.getResultList();
+
+        resultado.forEach(e->System.out.println(e));
+        return resultado;
     }
 
     public Estudiante guardarEstudiante(Estudiante estudiante) {

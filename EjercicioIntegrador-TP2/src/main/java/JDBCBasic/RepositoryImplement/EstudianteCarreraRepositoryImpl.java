@@ -25,19 +25,22 @@ public class EstudianteCarreraRepositoryImpl implements EstudianteCarreraReporis
         this.em.persist(estudianteCarrera);
         this.em.getTransaction().commit();
     }
-    public List<EstudianteCarreraDTO>GetCarrerasCantInscriptos(EstudianteCarrera e){
-        String jpql= "SELECT new DTO.EstudianteCarreraDTO (e.carreraNombre) FROM EstudianteCarrera e JOIN Carrera c  WHERE e.Estudiantes IS NOT NULL ORDER BY e.Estudiantes";
-        Query query=this.em.createQuery(jpql);
-        List<EstudianteCarreraDTO> resultado= query.getResultList();
-        return resultado;
-    }
+
+
     public List<CarreraReporteDTO> getReportes() {
         return List.of();
     }
 
     @Override
-    public List<MatriculacionDTO> getCarrerasConInscriptos() {
-        return List.of();
+    public List<EstudianteCarreraDTO> getCarrerasConInscriptos() {
+        String jpql= "SELECT new JDBCBasic.DTO.EstudianteCarreraDTO (c.nombre, COUNT(ec.estudiante)) FROM Carrera c JOIN EstudianteCarrera ec ON c.idCarrera = ec.carrera.idCarrera GROUP BY c.idCarrera, c.nombre ORDER BY COUNT(ec.estudiante) DESC";
+        Query query=this.em.createQuery(jpql);
+
+        List<EstudianteCarreraDTO> resultado = query.getResultList();
+
+        resultado.forEach(e->System.out.println(e));
+
+        return resultado;
     }
 
     public EstudianteCarrera guardarEstudianteCarrera(EstudianteCarrera estCarr) {

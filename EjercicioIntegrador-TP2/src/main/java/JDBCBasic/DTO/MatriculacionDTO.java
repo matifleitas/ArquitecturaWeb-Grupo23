@@ -6,6 +6,7 @@ public class MatriculacionDTO {
     private String nombreCarrera;
     private String nombreEstudiante;
     private String ciudad;
+    private Long cantInscriptos;
 
     public MatriculacionDTO(){}
 
@@ -16,6 +17,14 @@ public class MatriculacionDTO {
         this.ciudad = ciudad;
     }
 
+    public MatriculacionDTO(int idCarrera, String nombreCarrera, Long cantInscriptos) {
+        this.idCarrera = idCarrera;
+        this.nombreCarrera = nombreCarrera;
+        this.cantInscriptos = cantInscriptos;
+    }
+
+
+
     @Override
     public String toString() {
         return "MatriculacionDTO{" +
@@ -25,6 +34,8 @@ public class MatriculacionDTO {
                 ", ciudad='" + ciudad + '\'' +
                 '}';
     }
+
+    public Long getCantInscriptos() {return cantInscriptos;}
 
     public int getIdCarrera() {
         return idCarrera;

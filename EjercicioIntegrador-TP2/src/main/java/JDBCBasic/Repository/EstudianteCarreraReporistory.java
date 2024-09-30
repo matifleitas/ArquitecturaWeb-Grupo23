@@ -10,8 +10,8 @@ import java.util.List;
 public interface EstudianteCarreraReporistory {
     void insertarEstudianteCarrera(EstudianteCarrera estudianteCarrera);
     /*f)*/
-    List<EstudianteCarreraDTO> GetCarrerasCantInscriptos(EstudianteCarrera e);
+
     List<CarreraReporteDTO>getReportes();
-    List<MatriculacionDTO> getCarrerasConInscriptos();
+    List<EstudianteCarreraDTO> getCarrerasConInscriptos();
 
 }

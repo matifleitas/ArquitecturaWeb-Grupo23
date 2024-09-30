@@ -40,6 +40,7 @@ public class CarreraRepositoryImpl implements CarreraRepository {
         TypedQuery<MatriculacionDTO> estudiantesPorCiudad = (TypedQuery<MatriculacionDTO>) em.createQuery("SELECT new JDBCBasic.DTO.MatriculacionDTO(ec.carrera.idCarrera, ec.carrera.nombre, e.nombre, e.ciudad) FROM Estudiante e JOIN EstudianteCarrera ec ON e.idEstudiante = ec.estudiante.idEstudiante JOIN Carrera c ON ec.carrera.idCarrera = c.idCarrera WHERE c.nombre = :nombreCarrera AND e.ciudad = :ciudad");
         estudiantesPorCiudad.setParameter("nombreCarrera", nombreCarrera);
         estudiantesPorCiudad.setParameter("ciudad", ciudad);
+
         List<MatriculacionDTO> resultado = estudiantesPorCiudad.getResultList();
 
         resultado.forEach(e->System.out.println(e));

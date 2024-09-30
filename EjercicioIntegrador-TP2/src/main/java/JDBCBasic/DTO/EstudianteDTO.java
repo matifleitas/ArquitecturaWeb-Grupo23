@@ -11,11 +11,11 @@ public class EstudianteDTO {
 
     private int edad;
 
-    private String numLegajo;
+    private Long numLegajo;
 
     private String ciudad;
 
-    public EstudianteDTO(int dni, String nombre, String apellido, String genero, int edad, String numLegajo, String ciudad) {
+    public EstudianteDTO(int dni, String nombre, String apellido, String genero, int edad, Long numLegajo, String ciudad) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -23,6 +23,12 @@ public class EstudianteDTO {
         this.edad = edad;
         this.numLegajo = numLegajo;
         this.ciudad = ciudad;
+    }
+
+    public EstudianteDTO(String nombre, String apellido, int edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
     }
 
     public int getDni() {
@@ -49,6 +55,10 @@ public class EstudianteDTO {
         return ciudad;
     }
 
+    public Long getNumLegajo() {
+        return numLegajo;
+    }
+
     @Override
     public String toString() {
         return "EstudianteDTO{" +
@@ -62,7 +72,4 @@ public class EstudianteDTO {
                 '}';
     }
 
-    public String getNumLegajo() {
-        return numLegajo;
-    }
 }
