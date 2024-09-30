@@ -37,7 +37,7 @@ public class CarreraRepositoryImpl implements CarreraRepository {
 
     @Override
     public List<MatriculacionDTO> getEstudiantesPorCiudad(String ciudad, String nombreCarrera) {
-        TypedQuery<MatriculacionDTO> estudiantesPorCiudad = (TypedQuery<MatriculacionDTO>) em.createQuery("SELECT new DTO.MatriculacionDTO(int idCarrera, String nombreCarrera, String nombreEstudiante, String ciudad) FROM Estudiante e JOIN EstudianteCarrera ec ON e.idEstudiante = ec.estudiante JOIN Carrera c ON ec.carrera = c.idCarrera WHERE c.nombre = :nombreCarrera AND e.ciudad = :ciudad");
+        TypedQuery<MatriculacionDTO> estudiantesPorCiudad = (TypedQuery<MatriculacionDTO>) em.createQuery("SELECT new JDBCBasic.DTO.MatriculacionDTO(ec.carrera.idCarrera, ec.carrera.nombre, e.nombre, e.ciudad) FROM Estudiante e JOIN EstudianteCarrera ec ON e.idEstudiante = ec.estudiante.idEstudiante JOIN Carrera c ON ec.carrera.idCarrera = c.idCarrera WHERE c.nombre = :nombreCarrera AND e.ciudad = :ciudad");
         estudiantesPorCiudad.setParameter("nombreCarrera", nombreCarrera);
         estudiantesPorCiudad.setParameter("ciudad", ciudad);
         List<MatriculacionDTO> resultado = estudiantesPorCiudad.getResultList();
