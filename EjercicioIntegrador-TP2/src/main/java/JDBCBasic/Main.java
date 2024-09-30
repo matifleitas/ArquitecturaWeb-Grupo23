@@ -1,13 +1,10 @@
 package JDBCBasic;
 
 
-import JDBCBasic.DTO.EstudianteCarreraDTO;
-import JDBCBasic.DTO.EstudianteDTO;
 import JDBCBasic.Entities.*;
 import JDBCBasic.Factory.FactoryEntityManager;
 import JDBCBasic.RepositoryImplement.*;
 import java.time.LocalDate;
-import java.util.List;
 
 
 public class Main {
@@ -31,48 +28,50 @@ public class Main {
         Estudiante e5 = new Estudiante("Carola", "Pérez", 27, "Femenino", 56789012, 10004L, "Tandil", 2);
 
         //A)
-//        estudianteRepositoryImplement.insertarEstudiante(e1);
-//        estudianteRepositoryImplement.insertarEstudiante(e2);
-//        estudianteRepositoryImplement.insertarEstudiante(e3);
-//        estudianteRepositoryImplement.insertarEstudiante(e4);
-//        estudianteRepositoryImplement.insertarEstudiante(e5);
-//
-//        carreraRepositoryImplement.insertarCarrera(c1);
-//        carreraRepositoryImplement.insertarCarrera(c2);
-//        carreraRepositoryImplement.insertarCarrera(c3);
+        estudianteRepositoryImplement.insertarEstudiante(e1);
+        estudianteRepositoryImplement.insertarEstudiante(e2);
+        estudianteRepositoryImplement.insertarEstudiante(e3);
+        estudianteRepositoryImplement.insertarEstudiante(e4);
+        estudianteRepositoryImplement.insertarEstudiante(e5);
 
-        LocalDate fechaComienzo = LocalDate.of(2024, 10, 2); // Crear la fecha
-        LocalDate fechaComienzo2 = LocalDate.of(2020, 10, 2); // Crear la fecha
-        LocalDate fechaGraduacion = LocalDate.of(2021, 10, 2); // Crear la fecha
-        LocalDate fechaGraduacion2 = LocalDate.of(2023, 10, 2); // Crear la fecha
+        carreraRepositoryImplement.insertarCarrera(c1);
+        carreraRepositoryImplement.insertarCarrera(c2);
+        carreraRepositoryImplement.insertarCarrera(c3);
+
+        LocalDate fechaComienzo = LocalDate.of(2024, 10, 2);
+        LocalDate fechaComienzo2 = LocalDate.of(2020, 10, 2);
+        LocalDate fechaGraduacion = LocalDate.of(2026, 10, 2);
+        LocalDate fechaGraduacion2 = LocalDate.of(2023, 10, 2);
 
         EstudianteCarrera ec = new EstudianteCarrera(c2, e1, fechaComienzo, true, fechaGraduacion2);
-        EstudianteCarrera ec1 = new EstudianteCarrera(c1, e2, fechaComienzo, false, fechaGraduacion);
+        EstudianteCarrera ec1 = new EstudianteCarrera(c1, e2, fechaComienzo2, true, fechaGraduacion);
         EstudianteCarrera ec2 = new EstudianteCarrera(c3, e3, fechaComienzo, true, fechaGraduacion);
-        EstudianteCarrera ec3 = new EstudianteCarrera(c2, e4, fechaComienzo, false, fechaGraduacion2);
+        EstudianteCarrera ec3 = new EstudianteCarrera(c2, e4, fechaComienzo2, false, fechaGraduacion2);
 
         //B)
-//      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec);
-//      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec1);
-//      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec2);
-//      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec3);
+      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec);
+      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec1);
+      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec2);
+      estudianteCarreraRepositoryImpl.insertarEstudianteCarrera(ec3);
 
-        //C)
+        System.out.println("-----------------2 C-------------------------------");
         estudianteRepositoryImplement.getAllEstudiantesOrdenadoPorEdad();
 
-        //D)
+        System.out.println("-----------------2 D-------------------------------");
         estudianteRepositoryImplement.getEstudiantePorLegajo(10001L);
 
-        //E)
+        System.out.println("-----------------2 E-------------------------------");
         estudianteRepositoryImplement.getAllEstudiantesPorGenero("Masculino");
 
-        //F)
+        System.out.println("-----------------2 F-------------------------------");
         estudianteCarreraRepositoryImpl.getCarrerasConInscriptos();
 
-        //G)
+        System.out.println("-----------------2 G-------------------------------");
         carreraRepositoryImplement.getEstudiantesPorCiudad("Cordoba", "TUDAI");
 
         estudianteRepositoryImplement.getAllEstudiantesPorCiudad("Tandil");
 
+        System.out.println("----------------3) REPORTES DE CARRERAS -------------------------------");
+        estudianteCarreraRepositoryImpl.getReportes();
     }
 }

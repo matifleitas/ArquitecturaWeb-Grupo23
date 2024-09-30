@@ -1,9 +1,7 @@
 package JDBCBasic.Entities;
 
 import jakarta.persistence.*;
-import java.sql.Timestamp;
 import java.time.LocalDate;
-
 import static jakarta.persistence.GenerationType.AUTO;
 
 @Entity

@@ -1,33 +1,34 @@
 package JDBCBasic.DTO;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 public class CarreraReporteDTO {
     private int idCarrera;
     private String nombreCarrera;
     private int dni;
-    private Timestamp fechaInicio;
-    private int fechaGraduacion;
+    private LocalDate fechaInicio;
+    private LocalDate fechaGraduacion;
     private int anios;
-    private Long graducion;
+    private Integer graduacion;
     private Long registrados;
+    private Long graduados;
 
     public CarreraReporteDTO() {}
 
-    public CarreraReporteDTO(int anios, String nombreCarrera, Long graducion, Long registrados) {
-        this.anios = anios;
+    public CarreraReporteDTO(String nombreCarrera, Integer graduacion, long cantidadInscriptos,Long cantidadGraduados  ) {
         this.nombreCarrera = nombreCarrera;
-        this.graducion = graducion;
-        this.registrados = registrados;
+        this.graduacion = graduacion;
+        this.registrados = cantidadInscriptos;
+        this.graduados = cantidadGraduados;
     }
-
-    public CarreraReporteDTO(String nombreCarrera, int dni, int fechaGraduacion, Timestamp fechaInicio, int anios, Long graducion, Long registrados) {
+    public CarreraReporteDTO(String nombreCarrera, int dni, LocalDate fechaGraduacion, LocalDate fechaInicio, int anios, int graducion, Long registrados) {
         this.nombreCarrera = nombreCarrera;
         this.dni = dni;
         this.fechaGraduacion = fechaGraduacion;
         this.fechaInicio = fechaInicio;
         this.anios = anios;
-        this.graducion = graducion;
+        this.graduacion = graducion;
         this.registrados = registrados;
     }
 
@@ -43,7 +44,7 @@ public class CarreraReporteDTO {
         return dni;
     }
 
-    public Timestamp getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
@@ -51,25 +52,31 @@ public class CarreraReporteDTO {
         return anios;
     }
 
-    public int getFechaGraduacion() {
+    public LocalDate getFechaGraduacion() {
         return fechaGraduacion;
     }
 
     public Long getRegistrados() {
         return registrados;
     }
+    public Integer getGraduacion() {
+        return graduacion;
+    }
+
+    public Long getGraduados(){
+        return graduados;
+    }
 
     @Override
     public String toString() {
         return "CarreraReporteDTO{" +
                 "registrados=" + registrados +
-                ", graducion=" + graducion +
+                ", graduados=" + graduados +
+                ", graducion=" + graduacion +
                 ", anios=" + anios +
                 ", nombreCarrera='" + nombreCarrera + '\'' +
                 '}';
     }
 
-    public Long getGraducion() {
-        return graducion;
-    }
+
 }

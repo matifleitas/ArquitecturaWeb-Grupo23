@@ -2,7 +2,6 @@ package JDBCBasic.Repository;
 
 import JDBCBasic.DTO.EstudianteDTO;
 import JDBCBasic.Entities.Estudiante;
-
 import java.util.List;
 
 public interface EstudianteRepository {

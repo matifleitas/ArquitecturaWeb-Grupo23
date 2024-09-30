@@ -2,12 +2,10 @@ package JDBCBasic.RepositoryImplement;
 
 import JDBCBasic.DTO.CarreraReporteDTO;
 import JDBCBasic.DTO.EstudianteCarreraDTO;
-import JDBCBasic.DTO.MatriculacionDTO;
 import JDBCBasic.Entities.EstudianteCarrera;
 import JDBCBasic.Repository.EstudianteCarreraReporistory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
-
 import java.util.List;
 
 public class EstudianteCarreraRepositoryImpl implements EstudianteCarreraReporistory {
@@ -28,7 +26,19 @@ public class EstudianteCarreraRepositoryImpl implements EstudianteCarreraReporis
 
 
     public List<CarreraReporteDTO> getReportes() {
-        return List.of();
+        String jpql = "SELECT new JDBCBasic.DTO.CarreraReporteDTO(c.nombre,YEAR(ec.fechaGraduacion),COUNT(ec),SUM(CASE WHEN ec.estaGraduado = true THEN 1 ELSE 0 END)) FROM Carrera c JOIN EstudianteCarrera ec ON ec.carrera.idCarrera = c.idCarrera GROUP BY c.nombre, YEAR(ec.fechaGraduacion)ORDER BY c.nombre ASC, YEAR(ec.fechaGraduacion) ASC";
+        Query query = this.em.createQuery(jpql);
+
+        List<CarreraReporteDTO> resultado = query.getResultList();
+
+        resultado.forEach(reporte -> {
+            System.out.println("Carrera: " + reporte.getNombreCarrera() +
+                    " | Año de graduación: " + reporte.getGraduacion() +
+                    " | Cantidad de egredados : " +reporte.getGraduados()+
+                    " | Cantidad registrados: " + reporte.getRegistrados());
+        });
+
+        return resultado;
     }
 
     @Override

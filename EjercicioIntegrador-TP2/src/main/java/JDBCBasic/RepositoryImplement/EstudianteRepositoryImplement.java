@@ -1,16 +1,12 @@
 package JDBCBasic.RepositoryImplement;
-import JDBCBasic.DTO.*;
 import JDBCBasic.DTO.EstudianteDTO;
 import JDBCBasic.Entities.Estudiante;
 import JDBCBasic.Repository.EstudianteRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
-
-
 import java.util.List;
 
-import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
 
 public class EstudianteRepositoryImplement implements EstudianteRepository {
     /*entityManager para la conexion*/

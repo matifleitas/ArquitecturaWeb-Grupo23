@@ -7,8 +7,6 @@ import JDBCBasic.Entities.Estudiante;
 import JDBCBasic.Repository.CarreraRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-
-import java.time.Instant;
 import java.util.List;
 
 public class CarreraRepositoryImpl implements CarreraRepository {
