@@ -1,4 +1,4 @@
-package JDBCBasic.DTO;
+package Integrador2.DTO;
 
 /*Creo que esta clase esta de mas pq repite el reporte*/
 public class CarreraDTO {

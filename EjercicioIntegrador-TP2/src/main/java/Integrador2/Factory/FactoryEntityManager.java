@@ -1,8 +1,8 @@
-package JDBCBasic.Factory;
+package Integrador2.Factory;
 
-import JDBCBasic.RepositoryImplement.CarreraRepositoryImpl;
-import JDBCBasic.RepositoryImplement.EstudianteCarreraRepositoryImpl;
-import JDBCBasic.RepositoryImplement.EstudianteRepositoryImplement;
+import Integrador2.RepositoryImplement.CarreraRepositoryImpl;
+import Integrador2.RepositoryImplement.EstudianteCarreraRepositoryImpl;
+import Integrador2.RepositoryImplement.EstudianteRepositoryImplement;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

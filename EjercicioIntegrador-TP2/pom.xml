@@ -23,7 +23,7 @@
             <version>6.0.0.Final</version>
         </dependency>
 
-        <!-- JPA API -->
+        <!-- Jakarta Persistence API -->
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>

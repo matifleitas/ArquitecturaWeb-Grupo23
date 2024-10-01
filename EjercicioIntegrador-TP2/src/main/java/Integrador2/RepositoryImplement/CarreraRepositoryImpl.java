@@ -1,10 +1,10 @@
-package JDBCBasic.RepositoryImplement;
+package Integrador2.RepositoryImplement;
 
-import JDBCBasic.DTO.MatriculacionDTO;
-import JDBCBasic.Entities.Carrera;
+import Integrador2.DTO.MatriculacionDTO;
+import Integrador2.Entities.Carrera;
 
-import JDBCBasic.Entities.Estudiante;
-import JDBCBasic.Repository.CarreraRepository;
+import Integrador2.Entities.Estudiante;
+import Integrador2.Repository.CarreraRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
@@ -30,12 +30,11 @@ public class CarreraRepositoryImpl implements CarreraRepository {
         this.em.getTransaction().begin();
         this.em.persist(est);
         this.em.getTransaction().commit();
-
     }
 
     @Override
     public List<MatriculacionDTO> getEstudiantesPorCiudad(String ciudad, String nombreCarrera) {
-        TypedQuery<MatriculacionDTO> estudiantesPorCiudad = (TypedQuery<MatriculacionDTO>) em.createQuery("SELECT new JDBCBasic.DTO.MatriculacionDTO(ec.carrera.idCarrera, ec.carrera.nombre, e.nombre, e.ciudad) FROM Estudiante e JOIN EstudianteCarrera ec ON e.idEstudiante = ec.estudiante.idEstudiante JOIN Carrera c ON ec.carrera.idCarrera = c.idCarrera WHERE c.nombre = :nombreCarrera AND e.ciudad = :ciudad");
+        TypedQuery<MatriculacionDTO> estudiantesPorCiudad = (TypedQuery<MatriculacionDTO>) em.createQuery("SELECT new Integrador2.DTO.MatriculacionDTO(ec.carrera.idCarrera, ec.carrera.nombre, e.nombre, e.ciudad) FROM Estudiante e JOIN EstudianteCarrera ec ON e.idEstudiante = ec.estudiante.idEstudiante JOIN Carrera c ON ec.carrera.idCarrera = c.idCarrera WHERE c.nombre = :nombreCarrera AND e.ciudad = :ciudad");
         estudiantesPorCiudad.setParameter("nombreCarrera", nombreCarrera);
         estudiantesPorCiudad.setParameter("ciudad", ciudad);
 
@@ -46,12 +45,4 @@ public class CarreraRepositoryImpl implements CarreraRepository {
         return resultado;
     }
 
-    public Carrera guardarCarrera(Carrera c) {
-        if (c.getIdCarrera() == null) {
-            em.persist(c);
-        } else {
-            c = em.merge(c);
-        }
-        return c;
-    }
 }

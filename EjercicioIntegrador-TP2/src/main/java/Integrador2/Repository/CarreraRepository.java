@@ -1,9 +1,8 @@
-package JDBCBasic.Repository;
+package Integrador2.Repository;
 
-import JDBCBasic.DTO.MatriculacionDTO;
-import JDBCBasic.Entities.Carrera;
-import JDBCBasic.Entities.Estudiante;
-
+import Integrador2.DTO.MatriculacionDTO;
+import Integrador2.Entities.Carrera;
+import Integrador2.Entities.Estudiante;
 import java.util.List;
 
 public interface CarreraRepository {

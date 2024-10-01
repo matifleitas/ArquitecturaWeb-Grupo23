@@ -1,8 +1,8 @@
-package JDBCBasic.Factory;
+package Integrador2.Factory;
 
-import JDBCBasic.RepositoryImplement.CarreraRepositoryImpl;
-import JDBCBasic.RepositoryImplement.EstudianteCarreraRepositoryImpl;
-import JDBCBasic.RepositoryImplement.EstudianteRepositoryImplement;
+import Integrador2.RepositoryImplement.CarreraRepositoryImpl;
+import Integrador2.RepositoryImplement.EstudianteCarreraRepositoryImpl;
+import Integrador2.RepositoryImplement.EstudianteRepositoryImplement;
 
 public class MySQLEntityManagerFactory extends FactoryEntityManager {
 

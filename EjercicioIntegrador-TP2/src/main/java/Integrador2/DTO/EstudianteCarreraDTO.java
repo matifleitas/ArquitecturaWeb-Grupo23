@@ -1,11 +1,5 @@
-package JDBCBasic.DTO;
+package Integrador2.DTO;
 
-import JDBCBasic.Entities.Carrera;
-import JDBCBasic.Entities.EstudianteCarrera;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EstudianteCarreraDTO {
     private String carreraNombre;

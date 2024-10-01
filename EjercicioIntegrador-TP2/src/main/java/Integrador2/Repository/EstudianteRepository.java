@@ -1,7 +1,7 @@
-package JDBCBasic.Repository;
+package Integrador2.Repository;
 
-import JDBCBasic.DTO.EstudianteDTO;
-import JDBCBasic.Entities.Estudiante;
+import Integrador2.DTO.EstudianteDTO;
+import Integrador2.Entities.Estudiante;
 import java.util.List;
 
 public interface EstudianteRepository {

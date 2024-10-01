@@ -1,4 +1,4 @@
-package JDBCBasic.DTO;
+package Integrador2.DTO;
 
 public class MatriculacionDTO {
 
@@ -22,8 +22,6 @@ public class MatriculacionDTO {
         this.nombreCarrera = nombreCarrera;
         this.cantInscriptos = cantInscriptos;
     }
-
-
 
     @Override
     public String toString() {

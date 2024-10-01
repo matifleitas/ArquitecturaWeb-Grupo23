@@ -1,4 +1,4 @@
-package JDBCBasic.Entities;
+package Integrador2.Entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

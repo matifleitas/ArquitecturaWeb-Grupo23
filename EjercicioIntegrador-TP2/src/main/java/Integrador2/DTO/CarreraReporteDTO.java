@@ -1,6 +1,5 @@
-package JDBCBasic.DTO;
+package Integrador2.DTO;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 
 public class CarreraReporteDTO {

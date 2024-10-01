@@ -1,4 +1,4 @@
-package JDBCBasic.DTO;
+package Integrador2.DTO;
 
 public class EstudianteDTO {
     private int dni;
