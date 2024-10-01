@@ -1,0 +1,32 @@
+    @startuml
+    'https://plantuml.com/object-diagram
+
+    object e1 {
+        idEstudiante= 1;
+        nombre = "Florencia";
+        apellido = "Vivar";
+        edad = 31;
+        genero = "Femenino";
+        DNI = 37944511;
+        numLegajo = 10000L;
+        ciudad = "Tandil";
+        antiguedadEnCarrera = 2;
+    }
+
+    object c1 {
+        idCarrera= 001;
+        nombre = "TUDAI";
+    }
+
+    object ec1 {
+        carrera = 001;
+        estudiante = 1;
+        fechaComienzo = "2022-03-25";
+        estaGraduado = true;
+        fechaGraduacion = "2024-09-30";
+    }
+
+    e1 --> ec1 : se inscribe en
+    c1 --> ec1 : tiene estudiantes inscritos
+
+    @enduml
